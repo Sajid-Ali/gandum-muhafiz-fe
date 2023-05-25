@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, FlatList} from 'react-native';
 import Header from '../common/Header';
 import {TEST_USERS} from '../../utils/utils';
+import {useNavigation} from '@react-navigation/native';
 
 interface User {
   id: number;
@@ -9,26 +10,19 @@ interface User {
   phoneNumber: string;
 }
 
-interface HomeScreenProps {
-  users: User[];
-  navigation: any;
-  onEdit: (user: User) => void;
-  onDelete: (userId: number) => void;
-}
+export const HomeScreen: React.FC = () => {
+  const [users] = useState<Array<User>>(TEST_USERS);
+  const navigation = useNavigation();
 
-export const HomeScreen: React.FC<HomeScreenProps> = ({
-  users = TEST_USERS,
-  onEdit,
-  onDelete,
-  navigation,
-}) => {
   const renderItem = ({item}: {item: User}) => {
     const handleEdit = () => {
-      onEdit(item);
+      console.log('🚀 ~ ~ item:', item);
+      // onEdit(item);
     };
 
     const handleDelete = () => {
-      onDelete(item.id);
+      console.log('🚀 ~ ~ item:', item);
+      // onDelete(item.id);
     };
 
     return (

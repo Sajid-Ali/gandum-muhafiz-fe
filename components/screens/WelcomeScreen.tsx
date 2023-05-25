@@ -2,14 +2,16 @@ import React from 'react';
 import {View, Text, ImageBackground, StyleSheet} from 'react-native';
 
 import Button from '../../components/common/Button';
+import {useNavigation} from '@react-navigation/native';
 
-export const WelcomeScreen: React.FC = ({navigation}) => {
+export const WelcomeScreen: React.FC = () => {
+  const navigation = useNavigation();
   const handleAdminButtonPress = async () => {
-    navigation.navigate('Login', {type: 'admin'});
+    navigation.navigate('Login');
   };
 
   const handleUserButtonPress = async () => {
-    navigation.navigate('Home', {type: 'user'});
+    navigation.navigate('Home');
   };
 
   return (
