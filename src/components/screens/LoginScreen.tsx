@@ -7,15 +7,14 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+// import {useNavigation} from '@react-navigation/native';
 
 import styles from '../../styles/login-style';
-import Header from '../common/Header';
 
 export const LoginScreen: FC<{}> = ({}): ReactElement => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
 
   const doUserLogIn = async function (): Promise<boolean> {
     // Note that this values come from state variables that we've declared before
@@ -29,7 +28,6 @@ export const LoginScreen: FC<{}> = ({}): ReactElement => {
   return (
     <>
       <SafeAreaView style={styles.login_container}>
-        <Header navigation={navigation} title={'User List'} />
         <View style={styles.login_header}>
           <Image
             style={styles.login_header_logo}
@@ -43,7 +41,6 @@ export const LoginScreen: FC<{}> = ({}): ReactElement => {
           </Text>
         </View>
         {/* ------------- */}
-
         <View style={styles.login_wrapper}>
           <View style={styles.form}>
             <TextInput

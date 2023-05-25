@@ -3,7 +3,7 @@ import {useNavigation} from '@react-navigation/native';
 import {View, Text, TouchableOpacity, FlatList} from 'react-native';
 
 import Header from '../common/Header';
-import {TEST_USERS} from '../../src/utils/utils';
+import {TEST_USERS} from '../../utils/utils';
 import styles from '../../styles/home.styles';
 import Button from '../common/Button';
 

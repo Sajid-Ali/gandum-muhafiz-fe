@@ -7,8 +7,6 @@ const style = StyleSheet.create({
   },
   login_header: {
     alignItems: 'center',
-    // paddingTop: 30,
-    // paddingBottom: 50,
     justifyContent: 'center',
     backgroundColor: '#1BA2FC',
     height: '40%',
