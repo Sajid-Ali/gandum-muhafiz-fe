@@ -7,14 +7,14 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-// import {useNavigation} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 import styles from '../../styles/login-style';
 
 export const LoginScreen: FC<{}> = ({}): ReactElement => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  // const navigation = useNavigation();
+  const navigation = useNavigation();
 
   const doUserLogIn = async function (): Promise<boolean> {
     // Note that this values come from state variables that we've declared before
@@ -22,6 +22,7 @@ export const LoginScreen: FC<{}> = ({}): ReactElement => {
     console.log('🚀 ~  ~ usernameValue:', usernameValue);
     const passwordValue: string = password;
     console.log('🚀 ~  ~ passwordValue:', passwordValue);
+    navigation.navigate('Home');
     return true;
   };
 

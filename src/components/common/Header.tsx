@@ -1,17 +1,28 @@
 import React from 'react';
+import Icon from 'react-native-vector-icons/EvilIcons';
+import {useNavigation} from '@react-navigation/native';
 import {View, StyleSheet, TouchableOpacity, Text} from 'react-native';
 
 interface HeaderProps {
-  navigation: any;
   title: string;
-  profile?: boolean;
 }
 
 const Header: React.FC<HeaderProps> = ({title}) => {
+  const navigation = useNavigation();
   const {iconsViewStyle, navTitle, navRight} = styles;
 
   return (
     <View style={styles.backgroundColor}>
+      <View style={[iconsViewStyle, {backgroundColor: '#00a0ff'}]}>
+        <TouchableOpacity
+          style={styles.iconStyle}
+          onPress={() => {
+            navigation.goBack();
+          }}>
+          <Icon name="chevron-left" size={34} color={'#fff'} />
+        </TouchableOpacity>
+      </View>
+
       <View style={[iconsViewStyle, styles.backgroundColor]}>
         <TouchableOpacity
           style={styles.opecityStyle}
@@ -62,6 +73,14 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     paddingHorizontal: 5,
     paddingVertical: 15,
+  },
+  iconStyle: {
+    paddingHorizontal: 5,
+    paddingVertical: 10,
+    flex: 0.1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
   },
 });
 

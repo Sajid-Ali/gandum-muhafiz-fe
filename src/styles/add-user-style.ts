@@ -8,11 +8,12 @@ const style = StyleSheet.create({
   login_header: {
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#1BA2FC',
     height: '40%',
   },
   login_header_logo: {
     width: '100%',
-    resizeMode: 'center',
+    resizeMode: 'contain',
     position: 'absolute',
   },
   login_header_text: {
@@ -31,7 +32,7 @@ const style = StyleSheet.create({
     borderTopRightRadius: 12,
     borderTopLeftRadius: 12,
     marginTop: -10,
-    backgroundColor: '#B5B5B5',
+    backgroundColor: '#fff',
     alignItems: 'center',
   },
   form: {

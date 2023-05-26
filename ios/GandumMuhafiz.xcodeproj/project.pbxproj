@@ -36,6 +36,22 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = GandumMuhafiz/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = GandumMuhafiz/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = GandumMuhafiz/main.m; sourceTree = "<group>"; };
+		18AECBE82A20947700288108 /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
+		18AECBE92A20947700288108 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
+		18AECBEA2A20947700288108 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
+		18AECBEB2A20947700288108 /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
+		18AECBEC2A20947700288108 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Brands.ttf; sourceTree = "<group>"; };
+		18AECBED2A20947700288108 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialCommunityIcons.ttf; sourceTree = "<group>"; };
+		18AECBEE2A20947700288108 /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AntDesign.ttf; sourceTree = "<group>"; };
+		18AECBEF2A20947700288108 /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Foundation.ttf; sourceTree = "<group>"; };
+		18AECBF02A20947700288108 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
+		18AECBF12A20947700288108 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Solid.ttf; sourceTree = "<group>"; };
+		18AECBF22A20947700288108 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Regular.ttf; sourceTree = "<group>"; };
+		18AECBF32A20947700288108 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		18AECBF42A20947700288108 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
+		18AECBF52A20947700288108 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
+		18AECBF62A20947700288108 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
+		18AECBF72A20947700288108 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-GandumMuhafiz-GandumMuhafizTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GandumMuhafiz-GandumMuhafizTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-GandumMuhafiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GandumMuhafiz.debug.xcconfig"; path = "Target Support Files/Pods-GandumMuhafiz/Pods-GandumMuhafiz.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-GandumMuhafiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GandumMuhafiz.release.xcconfig"; path = "Target Support Files/Pods-GandumMuhafiz/Pods-GandumMuhafiz.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +102,7 @@
 		13B07FAE1A68108700A75B9A /* GandumMuhafiz */ = {
 			isa = PBXGroup;
 			children = (
+				18AECBE72A20947700288108 /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -94,6 +111,30 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = GandumMuhafiz;
+			sourceTree = "<group>";
+		};
+		18AECBE72A20947700288108 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				18AECBE82A20947700288108 /* Fontisto.ttf */,
+				18AECBE92A20947700288108 /* Octicons.ttf */,
+				18AECBEA2A20947700288108 /* Feather.ttf */,
+				18AECBEB2A20947700288108 /* Entypo.ttf */,
+				18AECBEC2A20947700288108 /* FontAwesome5_Brands.ttf */,
+				18AECBED2A20947700288108 /* MaterialCommunityIcons.ttf */,
+				18AECBEE2A20947700288108 /* AntDesign.ttf */,
+				18AECBEF2A20947700288108 /* Foundation.ttf */,
+				18AECBF02A20947700288108 /* Ionicons.ttf */,
+				18AECBF12A20947700288108 /* FontAwesome5_Solid.ttf */,
+				18AECBF22A20947700288108 /* FontAwesome5_Regular.ttf */,
+				18AECBF32A20947700288108 /* FontAwesome.ttf */,
+				18AECBF42A20947700288108 /* Zocial.ttf */,
+				18AECBF52A20947700288108 /* EvilIcons.ttf */,
+				18AECBF62A20947700288108 /* SimpleLineIcons.ttf */,
+				18AECBF72A20947700288108 /* MaterialIcons.ttf */,
+			);
+			name = Fonts;
+			path = "../node_modules/react-native-vector-icons/Fonts";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -200,7 +241,8 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1210;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -432,6 +474,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-GandumMuhafiz-GandumMuhafizTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -459,6 +502,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-GandumMuhafiz-GandumMuhafizTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = GandumMuhafizTests/Info.plist;
@@ -486,6 +530,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MKWS845HWM;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = GandumMuhafiz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -513,6 +558,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MKWS845HWM;
 				INFOPLIST_FILE = GandumMuhafiz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -18,7 +18,7 @@ export const HomeScreen: React.FC = () => {
   const navigation = useNavigation();
 
   const addNewUser = () => {
-    console.log('[][][][][]');
+    navigation.navigate('AddUser');
   };
 
   const renderItem = ({item}: {item: User}) => {
@@ -52,7 +52,7 @@ export const HomeScreen: React.FC = () => {
 
   return (
     <>
-      <Header navigation={navigation} title={'User List'} />
+      <Header title={'User List'} />
       <FlatList
         data={users}
         renderItem={renderItem}
