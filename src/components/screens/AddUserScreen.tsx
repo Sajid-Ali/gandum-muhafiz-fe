@@ -1,45 +1,67 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
+  ActivityIndicator,
   Image,
   SafeAreaView,
-  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
-// import {useNavigation} from '@react-navigation/native';
-
-import styles from '../../styles/login-style';
 import {Camera, useCameraDevices} from 'react-native-vision-camera';
+
+import styles from '../../styles/add-user-style';
 
 export const AddUserScreen: React.FC = () => {
   const [cnic, setIdValue] = useState('');
-  const camera = useRef<Camera>(null);
-  const [cameraDevices]: any = useCameraDevices('wide-angle-camera');
 
-  const openCamera = async () => {
-    const cameraPermission = await Camera.getCameraPermissionStatus();
-    if (cameraPermission === 'authorized') {
-      try {
-        // Access the photo data
-        if (camera?.current) {
-          const photo: any = await camera.current.takePhoto({
-            qualityPrioritization: 'quality',
-            flash: 'on',
-            enableAutoRedEyeReduction: true,
-          });
-          const photoData: any = photo.base64;
-          console.log('Photo data:', photoData);
-          // Perform further processing or save the photo data as needed
-        }
-      } catch (error) {
-        console.log('Error taking photo:', error);
-      }
+  const camera = useRef<Camera>(null);
+  const [cameraPermission, setCameraPermission] = useState<string | null>(null);
+  const [photoPath, setPhotoPath] = useState<any>();
+  // const detectorResult = useSharedValue('');
+
+  const devices = useCameraDevices();
+  const cameraDevice = devices.back;
+
+  useEffect(() => {
+    (async () => {
+      const cameraPermissionStatus = await Camera.requestCameraPermission();
+      setCameraPermission(cameraPermissionStatus);
+    })();
+  }, []);
+
+  const handleTakePhoto = async () => {
+    try {
+      const photo = await camera?.current?.takePhoto({
+        flash: 'on',
+      });
+      setPhotoPath(photo?.path || '');
+    } catch (e) {
+      console.log(e);
     }
-    console.log('🚀 ~ file: ~ cameraPermission:', cameraPermission);
-    const newCameraPermission = await Camera.requestCameraPermission();
-    console.log('🚀 ~ file:  ~ newCameraPermission:', newCameraPermission);
+  };
+
+  const renderTakingPhoto = () => {
+    if (cameraDevice == null) {
+      return <ActivityIndicator size="large" color="#1C6758" />;
+    }
+    if (cameraPermission !== 'authorized') {
+      return null;
+    }
+    return (
+      <>
+        <Camera
+          ref={camera}
+          style={[styles.camera, styles.photoAndVideoCamera]}
+          device={cameraDevice}
+          isActive
+          photo
+        />
+        <TouchableOpacity style={styles.button} onPress={handleTakePhoto}>
+          <Text style={styles.button_label}>Take Photo</Text>
+        </TouchableOpacity>
+      </>
+    );
   };
 
   const addNewUser = () => {
@@ -52,7 +74,11 @@ export const AddUserScreen: React.FC = () => {
         <View style={styles.login_header}>
           <Image
             style={styles.login_header_logo}
-            source={require('../../assets/images/cnid-placeholder.png')}
+            source={
+              photoPath
+                ? {uri: photoPath}
+                : require('../../assets/images/cnid-placeholder.png')
+            }
           />
         </View>
         {/* ------------- */}
@@ -65,12 +91,9 @@ export const AddUserScreen: React.FC = () => {
               onChangeText={text => setIdValue(text)}
               autoCapitalize={'none'}
               keyboardType={'default'}
+              placeholderTextColor="#000"
             />
-            <TouchableOpacity onPress={() => openCamera()}>
-              <View style={styles.button}>
-                <Text style={styles.button_label}>{'Take CNIC Photo'}</Text>
-              </View>
-            </TouchableOpacity>
+            {!photoPath && renderTakingPhoto()}
             <TouchableOpacity onPress={() => addNewUser()}>
               <View style={styles.button}>
                 <Text style={styles.button_label}>{'Create'}</Text>
@@ -78,12 +101,6 @@ export const AddUserScreen: React.FC = () => {
             </TouchableOpacity>
           </View>
         </View>
-        <Camera
-          ref={camera}
-          style={StyleSheet.absoluteFill}
-          device={cameraDevices.device?.id || ''}
-          isActive={true}
-        />
       </SafeAreaView>
     </>
   );

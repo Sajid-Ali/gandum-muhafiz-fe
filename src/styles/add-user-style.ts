@@ -6,10 +6,11 @@ const style = StyleSheet.create({
     backgroundColor: '#FFF',
   },
   login_header: {
+    height: '30%',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#1BA2FC',
-    height: '40%',
+    marginVertical: 8,
+    marginHorizontal: 8,
   },
   login_header_logo: {
     width: '100%',
@@ -28,16 +29,18 @@ const style = StyleSheet.create({
   login_wrapper: {
     flex: 1,
     justifyContent: 'space-between',
-    paddingVertical: 40,
+    paddingVertical: 24,
     borderTopRightRadius: 12,
     borderTopLeftRadius: 12,
     marginTop: -10,
-    backgroundColor: '#fff',
+    backgroundColor: 'lightgray',
     alignItems: 'center',
   },
   form: {
-    width: '100%',
-    maxWidth: 280,
+    width: '90%',
+    marginHorizontal: 16,
+    display: 'flex',
+    justifyContent: 'center',
   },
   form_input: {
     height: 44,
@@ -114,6 +117,16 @@ const style = StyleSheet.create({
     color: '#208AEC',
     fontSize: 15,
     fontWeight: 'bold',
+  },
+  photoAndVideoCamera: {
+    backgroundColor: 'red',
+    height: '60%',
+    borderRadius: 15,
+  },
+  camera: {
+    height: '30%',
+    width: '100%',
+    alignSelf: 'center',
   },
 });
 
