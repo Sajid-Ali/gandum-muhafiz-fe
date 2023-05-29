@@ -17,7 +17,7 @@ export const AddUserScreen: React.FC = () => {
 
   const camera = useRef<Camera>(null);
   const [cameraPermission, setCameraPermission] = useState<string | null>(null);
-  const [photoPath, setPhotoPath] = useState<any>();
+  const [base64Image, setBase64Image] = useState<any>();
   // const detectorResult = useSharedValue('');
 
   const devices = useCameraDevices();
@@ -30,12 +30,25 @@ export const AddUserScreen: React.FC = () => {
     })();
   }, []);
 
+  function bolbToBase64(bolb: Blob) {
+    return new Promise((resolve, _) => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result);
+      reader.readAsDataURL(bolb);
+    });
+  }
+
   const handleTakePhoto = async () => {
     try {
       const photo = await camera?.current?.takePhoto({
-        flash: 'on',
+        flash: 'auto',
       });
-      setPhotoPath(photo?.path || '');
+      if (photo !== null) {
+        const photoResppnse = await fetch(`file://${photo?.path}`);
+        const bolbData = await photoResppnse.blob();
+        const base64 = await bolbToBase64(bolbData);
+        setBase64Image(base64 || null);
+      }
     } catch (e) {
       console.log(e);
     }
@@ -75,8 +88,8 @@ export const AddUserScreen: React.FC = () => {
           <Image
             style={styles.login_header_logo}
             source={
-              photoPath
-                ? {uri: photoPath}
+              base64Image
+                ? {uri: base64Image}
                 : require('../../assets/images/cnid-placeholder.png')
             }
           />
@@ -93,7 +106,7 @@ export const AddUserScreen: React.FC = () => {
               keyboardType={'default'}
               placeholderTextColor="#000"
             />
-            {!photoPath && renderTakingPhoto()}
+            {!base64Image && renderTakingPhoto()}
             <TouchableOpacity onPress={() => addNewUser()}>
               <View style={styles.button}>
                 <Text style={styles.button_label}>{'Create'}</Text>
