@@ -51,6 +51,7 @@ export const LoginScreen: FC<{}> = ({}): ReactElement => {
               onChangeText={text => setUsername(text)}
               autoCapitalize={'none'}
               keyboardType={'email-address'}
+              placeholderTextColor="#000"
             />
             <TextInput
               style={styles.form_input}
@@ -58,6 +59,7 @@ export const LoginScreen: FC<{}> = ({}): ReactElement => {
               placeholder={'Password'}
               secureTextEntry
               onChangeText={text => setPassword(text)}
+              placeholderTextColor="#000"
             />
             <TouchableOpacity onPress={() => doUserLogIn()}>
               <View style={styles.button}>

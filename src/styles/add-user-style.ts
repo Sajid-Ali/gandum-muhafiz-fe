@@ -119,12 +119,11 @@ const style = StyleSheet.create({
     fontWeight: 'bold',
   },
   photoAndVideoCamera: {
-    backgroundColor: 'red',
-    height: '60%',
+    height: '50%',
     borderRadius: 15,
   },
   camera: {
-    height: '30%',
+    height: '25%',
     width: '100%',
     alignSelf: 'center',
   },

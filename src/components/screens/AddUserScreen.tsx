@@ -89,7 +89,7 @@ export const AddUserScreen: React.FC = () => {
             style={styles.login_header_logo}
             source={
               base64Image
-                ? {uri: base64Image}
+                ? {uri: `${base64Image}`}
                 : require('../../assets/images/cnid-placeholder.png')
             }
           />
@@ -106,12 +106,23 @@ export const AddUserScreen: React.FC = () => {
               keyboardType={'default'}
               placeholderTextColor="#000"
             />
+            <TextInput
+              style={styles.form_input}
+              value={cnic}
+              placeholder={'Enter quantity here...'}
+              onChangeText={text => setIdValue(text)}
+              autoCapitalize={'none'}
+              keyboardType={'number-pad'}
+              placeholderTextColor="#000"
+            />
             {!base64Image && renderTakingPhoto()}
-            <TouchableOpacity onPress={() => addNewUser()}>
-              <View style={styles.button}>
-                <Text style={styles.button_label}>{'Create'}</Text>
-              </View>
-            </TouchableOpacity>
+            {base64Image && (
+              <TouchableOpacity onPress={() => addNewUser()}>
+                <View style={styles.button}>
+                  <Text style={styles.button_label}>{'Create'}</Text>
+                </View>
+              </TouchableOpacity>
+            )}
           </View>
         </View>
       </SafeAreaView>
