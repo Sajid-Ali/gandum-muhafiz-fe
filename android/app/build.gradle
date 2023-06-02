@@ -112,6 +112,12 @@ android {
         }
     }
     signingConfigs {
+        release {
+            storeFile file('release_apk.keystore')
+            storePassword 'sajid13'
+            keyAlias 'release_apk'
+            keyPassword 'sajid13'
+        }
         debug {
             storeFile file('debug.keystore')
             storePassword 'android'
@@ -122,6 +128,7 @@ android {
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
         release {
             // Caution! In production, you need to generate your own keystore file.
