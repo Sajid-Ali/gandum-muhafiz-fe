@@ -13,9 +13,10 @@ const style = StyleSheet.create({
     marginHorizontal: 8,
   },
   login_header_logo: {
-    width: '100%',
+    width: '95%',
+    height: '90%',
+    borderRadius: 16,
     resizeMode: 'contain',
-    position: 'absolute',
   },
   login_header_text: {
     marginTop: 15,
@@ -28,7 +29,7 @@ const style = StyleSheet.create({
   },
   login_wrapper: {
     flex: 1,
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     paddingVertical: 24,
     borderTopRightRadius: 12,
     borderTopLeftRadius: 12,

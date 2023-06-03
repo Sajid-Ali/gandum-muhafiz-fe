@@ -41,6 +41,7 @@ export const AddUserScreen: React.FC = () => {
   const handleTakePhoto = async () => {
     try {
       const photo = await camera?.current?.takePhoto({
+        skipMetadata: true,
         flash: 'auto',
       });
       if (photo !== null) {
@@ -87,6 +88,7 @@ export const AddUserScreen: React.FC = () => {
         <View style={styles.login_header}>
           <Image
             style={styles.login_header_logo}
+            resizeMode="cover"
             source={
               base64Image
                 ? {uri: `${base64Image}`}
