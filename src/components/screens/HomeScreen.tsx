@@ -1,6 +1,12 @@
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {View, Text, TouchableOpacity, FlatList} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  FlatList,
+  SafeAreaView,
+} from 'react-native';
 
 import Header from '../common/Header';
 import {TEST_USERS} from '../../utils/utils';
@@ -21,6 +27,11 @@ export const HomeScreen: React.FC = () => {
     navigation.navigate('AddUser');
   };
 
+  const generateRandomNumber = () => {
+    const randomDecimal = Math.random();
+    return Math.floor(randomDecimal * 10) + 1;
+  };
+
   const renderItem = ({item}: {item: User}) => {
     const handleEdit = () => {
       console.log('🚀 ~ ~ item:', item);
@@ -35,8 +46,21 @@ export const HomeScreen: React.FC = () => {
     return (
       <View style={styles.container}>
         <View style={styles.userInfo}>
-          <Text style={styles.name}>{item.name}</Text>
-          <Text style={styles.phoneNumber}>{item.phoneNumber}</Text>
+          <Text style={styles.name}>
+            <Text style={styles.strong}>Name: </Text>
+            {item.name}
+            {'   '}
+            <Text
+              style={styles.quantity}>{`${generateRandomNumber()} Bags`}</Text>
+          </Text>
+          <Text style={styles.phoneNumber}>
+            <Text style={styles.strong}>Phone: </Text>
+            {item.phoneNumber}
+          </Text>
+          <Text style={styles.phoneNumber}>
+            <Text style={styles.strong}>CNIC: </Text>
+            {item.phoneNumber}
+          </Text>
         </View>
         <View style={styles.actions}>
           <TouchableOpacity style={styles.button} onPress={handleEdit}>
@@ -51,7 +75,7 @@ export const HomeScreen: React.FC = () => {
   };
 
   return (
-    <>
+    <SafeAreaView style={styles.wrapper}>
       <Header title={'User List'} />
       <FlatList
         data={users}
@@ -61,6 +85,6 @@ export const HomeScreen: React.FC = () => {
       <View style={styles.footer}>
         <Button title="Add New User" onPress={addNewUser} />
       </View>
-    </>
+    </SafeAreaView>
   );
 };

@@ -11,6 +11,7 @@ import {
 import {Camera, useCameraDevices} from 'react-native-vision-camera';
 
 import styles from '../../styles/add-user-style';
+import Header from '../common/Header';
 
 export const AddUserScreen: React.FC = () => {
   const [cnic, setIdValue] = useState('');
@@ -84,7 +85,8 @@ export const AddUserScreen: React.FC = () => {
 
   return (
     <>
-      <SafeAreaView style={styles.login_container}>
+      <SafeAreaView style={styles.container}>
+        <Header title={'Add User'} />
         <View style={styles.login_header}>
           <Image
             style={styles.login_header_logo}

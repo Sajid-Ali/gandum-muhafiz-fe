@@ -1,6 +1,10 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+    backgroundColor: '#FFF',
+  },
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -14,23 +18,39 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   name: {
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 14,
+    fontWeight: '600',
   },
   phoneNumber: {
     fontSize: 14,
     color: '#888',
   },
   actions: {
-    flexDirection: 'row',
+    flex: 1,
+    display: 'flex',
     alignItems: 'center',
+    flexDirection: 'column',
+  },
+  strong: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#1BA2FC',
+  },
+  quantity: {
+    fontSize: 16,
+    color: '#1BA2FC',
+    fontWeight: 'bold',
+    paddingVertical: 5,
+    position: 'absolute',
+    paddingHorizontal: 5,
   },
   button: {
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    marginLeft: 10,
+    width: 120,
+    marginBottom: 4,
+    borderRadius: 60,
+    paddingVertical: 4,
+    paddingHorizontal: 8,
     backgroundColor: '#1BA2FC',
-    borderRadius: 5,
   },
   buttonText: {
     color: '#fff',

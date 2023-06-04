@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 const style = StyleSheet.create({
-  login_container: {
+  container: {
     flex: 1,
     backgroundColor: '#FFF',
   },
@@ -9,7 +9,7 @@ const style = StyleSheet.create({
     height: '30%',
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 8,
+    marginBottom: 8,
     marginHorizontal: 8,
   },
   login_header_logo: {
