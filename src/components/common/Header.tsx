@@ -9,11 +9,11 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({title}) => {
   const navigation = useNavigation();
-  const {iconsViewStyle, navTitle, navRight} = styles;
+  const {iconsViewStyle, navTitle} = styles;
 
   return (
     <View style={styles.backgroundColor}>
-      <View style={[iconsViewStyle, {backgroundColor: '#00a0ff'}]}>
+      <View style={iconsViewStyle}>
         <TouchableOpacity
           style={styles.iconStyle}
           onPress={() => {
@@ -23,22 +23,23 @@ const Header: React.FC<HeaderProps> = ({title}) => {
         </TouchableOpacity>
       </View>
 
-      <View style={[iconsViewStyle, styles.backgroundColor]}>
-        <TouchableOpacity
-          style={styles.opecityStyle}
-          hitSlop={styles.hitSlop}
-        />
+      <View style={iconsViewStyle}>
+        <TouchableOpacity style={styles.opecityStyle} />
         <View style={navTitle}>
           <Text style={styles.title}>{title}</Text>
         </View>
-        <View style={navRight} />
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  backgroundColor: {backgroundColor: '#00a0ff'},
+  backgroundColor: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    backgroundColor: '#00a0ff',
+  },
   opecityStyle: {
     paddingHorizontal: 5,
     paddingVertical: 10,
@@ -47,7 +48,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
   },
-  hitSlop: {top: 5, bottom: 5, right: 5, left: 5},
   title: {
     color: '#fff',
     fontSize: 18,
@@ -55,32 +55,20 @@ const styles = StyleSheet.create({
     lineHeight: 24,
   },
   iconsViewStyle: {
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     flexDirection: 'row',
     fontSize: 18,
     fontWeight: '500',
   },
   navTitle: {
-    flex: 0.8,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 5,
     paddingVertical: 10,
-  },
-  navRight: {
-    flex: 0.1,
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    paddingHorizontal: 5,
-    paddingVertical: 15,
   },
   iconStyle: {
     paddingHorizontal: 5,
     paddingVertical: 10,
-    flex: 0.1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
   },
 });
 

@@ -1,13 +1,13 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createStackNavigator} from '@react-navigation/stack';
 
 import {HomeScreen} from '../screens/HomeScreen';
 import {WelcomeScreen} from '../screens/WelcomeScreen';
 import {LoginScreen} from '../screens/LoginScreen';
 import {AddUserScreen} from '../screens/AddUserScreen';
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 function AppNavigator() {
   return (

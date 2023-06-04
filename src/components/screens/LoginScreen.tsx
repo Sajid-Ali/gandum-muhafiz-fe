@@ -61,8 +61,14 @@ export const LoginScreen: FC<{}> = ({}): ReactElement => {
               onChangeText={text => setPassword(text)}
               placeholderTextColor="#000"
             />
-            <TouchableOpacity onPress={() => doUserLogIn()}>
-              <View style={styles.button}>
+            <TouchableOpacity
+              onPress={() => doUserLogIn()}
+              disabled={!password && !username}>
+              <View
+                style={[
+                  styles.button,
+                  (!password || !username) && {backgroundColor: 'gray'},
+                ]}>
                 <Text style={styles.button_label}>{'Sign in'}</Text>
               </View>
             </TouchableOpacity>
