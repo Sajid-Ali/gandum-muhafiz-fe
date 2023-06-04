@@ -1,13 +1,14 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {
-  ActivityIndicator,
-  Image,
-  SafeAreaView,
   Text,
-  TextInput,
-  TouchableOpacity,
   View,
+  Image,
+  TextInput,
+  SafeAreaView,
+  TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import {Camera, useCameraDevices} from 'react-native-vision-camera';
 
 import styles from '../../styles/add-user-style';
@@ -15,11 +16,12 @@ import Header from '../common/Header';
 
 export const AddUserScreen: React.FC = () => {
   const [cnic, setIdValue] = useState('');
+  const [quantity, setQuantity] = useState('');
 
   const camera = useRef<Camera>(null);
   const [cameraPermission, setCameraPermission] = useState<string | null>(null);
   const [base64Image, setBase64Image] = useState<any>();
-  // const detectorResult = useSharedValue('');
+  const navigation = useNavigation();
 
   const devices = useCameraDevices();
   const cameraDevice = devices.back;
@@ -80,7 +82,9 @@ export const AddUserScreen: React.FC = () => {
   };
 
   const addNewUser = () => {
-    console.log('[][][][][]');
+    setTimeout(() => {
+      navigation.navigate('Home');
+    }, 1000);
   };
 
   return (
@@ -112,9 +116,9 @@ export const AddUserScreen: React.FC = () => {
             />
             <TextInput
               style={styles.form_input}
-              value={cnic}
+              value={quantity}
               placeholder={'Enter quantity here...'}
-              onChangeText={text => setIdValue(text)}
+              onChangeText={text => setQuantity(text)}
               autoCapitalize={'none'}
               keyboardType={'number-pad'}
               placeholderTextColor="#000"

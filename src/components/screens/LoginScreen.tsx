@@ -16,14 +16,13 @@ export const LoginScreen: FC<{}> = ({}): ReactElement => {
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
 
-  const doUserLogIn = async function (): Promise<boolean> {
+  const doUserLogIn = async function (): Promise<void> {
     // Note that this values come from state variables that we've declared before
     const usernameValue: string = username;
     console.log('🚀 ~  ~ usernameValue:', usernameValue);
     const passwordValue: string = password;
     console.log('🚀 ~  ~ passwordValue:', passwordValue);
     navigation.navigate('Home');
-    return true;
   };
 
   return (
