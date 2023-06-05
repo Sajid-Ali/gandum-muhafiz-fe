@@ -14,4 +14,7 @@ module.exports = {
       },
     }),
   },
+  resolver: {
+    assetExts: ['png', 'jpg', 'jpeg', 'gif'], // Add any other supported image formats
+  },
 };
