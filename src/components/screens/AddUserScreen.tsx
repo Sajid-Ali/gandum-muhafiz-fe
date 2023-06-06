@@ -98,7 +98,7 @@ export const AddUserScreen: React.FC = () => {
             source={
               base64Image
                 ? {uri: `${base64Image}`}
-                : require('../../assets/images/cnid-placeholder.png')
+                : require('../../assets/images/cnid-placeholder.jpg')
             }
           />
         </View>

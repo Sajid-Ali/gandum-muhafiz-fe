@@ -31,7 +31,7 @@ export const LoginScreen: FC<{}> = ({}): ReactElement => {
         <View style={styles.login_header}>
           <Image
             style={styles.login_header_logo}
-            source={require('../../assets/images/welcome.png')}
+            source={require('../../assets/images/welcome.jpg')}
           />
           <Text style={styles.login_header_text}>
             <Text style={styles.login_header_text_bold}>

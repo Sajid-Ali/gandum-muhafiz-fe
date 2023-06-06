@@ -17,7 +17,7 @@ export const WelcomeScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require('../../assets/images/welcome.png')}
+        source={require('../../assets/images/welcome.jpg')}
         style={styles.backgroundImage}>
         <View style={[styles.container, styles.overlay]}>
           <View></View>
