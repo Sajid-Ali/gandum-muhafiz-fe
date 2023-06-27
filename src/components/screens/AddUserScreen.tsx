@@ -7,16 +7,22 @@ import {
   SafeAreaView,
   TouchableOpacity,
   ActivityIndicator,
+  Alert,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {Camera, useCameraDevices} from 'react-native-vision-camera';
 
 import styles from '../../styles/add-user-style';
 import Header from '../common/Header';
+import {fetchAPI} from '../../services/ApiUtils';
+import Loader from '../common/Loader';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const AddUserScreen: React.FC = () => {
+  const [name, setName] = useState('');
   const [cnic, setIdValue] = useState('');
-  const [quantity, setQuantity] = useState('');
+  const [members, setMembers] = useState('');
+  const [loader, setLoader] = useState(false);
 
   const camera = useRef<Camera>(null);
   const [cameraPermission, setCameraPermission] = useState<string | null>(null);
@@ -81,30 +87,65 @@ export const AddUserScreen: React.FC = () => {
     );
   };
 
-  const addNewUser = () => {
-    setTimeout(() => {
-      navigation.navigate('Home');
-    }, 1000);
-  };
+  async function addNewUser(): Promise<void> {
+    try {
+      const currentUser = await AsyncStorage.getItem('currentUser');
+      const data = currentUser && JSON.parse(currentUser);
+      setLoader(true);
+      const payload = JSON.stringify({
+        name,
+        members,
+        CNIC: cnic,
+        area: data?.location || '',
+      });
+      const response = await fetchAPI({
+        payload: payload,
+        method: 'POST',
+        route: 'users',
+      });
+      if (response?.user) {
+        navigation.navigate('Home');
+      } else {
+        Alert.alert('Failed to create user, try again.');
+      }
+      setLoader(false);
+    } catch (error) {
+      console.log('>>> ERROR LOGIN <<<:', error);
+      Alert.alert('Failed to create user, try again.');
+      setLoader(false);
+    }
+  }
 
   return (
     <>
       <SafeAreaView style={styles.container}>
         <Header title={'Add User'} />
-        <View style={styles.login_header}>
-          <Image
-            style={styles.login_header_logo}
-            resizeMode="cover"
-            source={
-              base64Image
-                ? {uri: `${base64Image}`}
-                : require('../../assets/images/cnid-placeholder.jpg')
-            }
-          />
-        </View>
+        {loader && <Loader />}
+        {base64Image && (
+          <View style={styles.login_header}>
+            <Image
+              style={styles.login_header_logo}
+              resizeMode="cover"
+              source={
+                base64Image
+                  ? {uri: `${base64Image}`}
+                  : require('../../assets/images/cnid-placeholder.jpg')
+              }
+            />
+          </View>
+        )}
         {/* ------------- */}
         <View style={styles.login_wrapper}>
           <View style={styles.form}>
+            <TextInput
+              style={styles.form_input}
+              value={name}
+              placeholder={'Enter name here...'}
+              onChangeText={text => setName(text)}
+              autoCapitalize={'none'}
+              keyboardType={'default'}
+              placeholderTextColor="#000"
+            />
             <TextInput
               style={styles.form_input}
               value={cnic}
@@ -116,9 +157,9 @@ export const AddUserScreen: React.FC = () => {
             />
             <TextInput
               style={styles.form_input}
-              value={quantity}
-              placeholder={'Enter quantity here...'}
-              onChangeText={text => setQuantity(text)}
+              value={members}
+              placeholder={'Enter members here...'}
+              onChangeText={text => setMembers(text)}
               autoCapitalize={'none'}
               keyboardType={'number-pad'}
               placeholderTextColor="#000"

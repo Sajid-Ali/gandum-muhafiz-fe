@@ -1,4 +1,5 @@
 import React, {FC, ReactElement, useState} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   Alert,
   Image,
@@ -31,6 +32,10 @@ export const LoginScreen: FC<{}> = ({}): ReactElement => {
       });
       if (response?.user) {
         navigation.navigate('Home');
+        await AsyncStorage.setItem(
+          'currentUser',
+          JSON.stringify(response?.user),
+        );
       } else {
         Alert.alert('Failed to authenticate user, please try again.');
       }

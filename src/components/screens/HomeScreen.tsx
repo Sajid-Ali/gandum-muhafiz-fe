@@ -81,7 +81,7 @@ export const HomeScreen: React.FC = () => {
           </Text>
           <Text style={styles.phoneNumber}>
             <Text style={styles.strong}>Phone: </Text>
-            {item.phone_number}
+            {item.phone_number || 'N/A'}
           </Text>
           <Text style={styles.phoneNumber}>
             <Text style={styles.strong}>CNIC: </Text>
