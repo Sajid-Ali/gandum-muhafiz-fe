@@ -19,3 +19,5 @@ export const TEST_USERS = [
   {id: 119, name: 'Rehan Arif', phoneNumber: '123-123'},
   {id: 120, name: 'Arham Ali', phoneNumber: '123-123'},
 ];
+
+export const BASE_URL = 'http://84.46.241.141:3020/api';
