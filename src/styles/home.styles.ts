@@ -45,16 +45,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
   },
   button: {
+    flex: 1,
+    height: 30,
     width: 120,
-    marginBottom: 4,
-    borderRadius: 60,
+    maxHeight: 30,
+    borderRadius: 20,
     paddingVertical: 4,
     paddingHorizontal: 8,
+    alignContent: 'center',
+    justifyContent: 'center',
     backgroundColor: '#1BA2FC',
   },
   buttonText: {
     color: '#fff',
     fontSize: 14,
+    textAlign: 'center',
   },
   button_label: {
     color: '#fff',

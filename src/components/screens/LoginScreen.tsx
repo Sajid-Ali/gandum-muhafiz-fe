@@ -20,11 +20,15 @@ export const LoginScreen: FC<{}> = ({}): ReactElement => {
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
 
-  const doUserLogIn = async function (): Promise<void> {
+  async function doUserLogIn(): Promise<void> {
     try {
       setLoader(true);
       const payload = JSON.stringify({password: password, email: username});
-      const response = await fetchAPI(payload, 'retailer/login', 'POST');
+      const response = await fetchAPI({
+        payload,
+        method: 'POST',
+        route: 'retailer/login',
+      });
       if (response?.user) {
         navigation.navigate('Home');
       } else {
@@ -36,7 +40,7 @@ export const LoginScreen: FC<{}> = ({}): ReactElement => {
       Alert.alert('Failed to authenticate user, please try again.');
       setLoader(false);
     }
-  };
+  }
 
   return (
     <SafeAreaView style={styles.login_container}>

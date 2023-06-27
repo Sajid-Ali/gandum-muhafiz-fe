@@ -1,7 +1,7 @@
 import {BASE_URL} from '../utils/utils';
 
 // Generic function for making API requests
-export async function fetchAPI(payload, route, method) {
+export async function fetchAPI({payload, route, method}) {
   try {
     let headers = {
       'Content-type': 'application/json',
