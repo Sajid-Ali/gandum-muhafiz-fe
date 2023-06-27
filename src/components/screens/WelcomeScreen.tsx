@@ -11,7 +11,7 @@ export const WelcomeScreen: React.FC = () => {
   };
 
   const handleUserButtonPress = async () => {
-    navigation.navigate('Home');
+    navigation.navigate('Retailers');
   };
 
   return (
@@ -23,9 +23,12 @@ export const WelcomeScreen: React.FC = () => {
           <View></View>
           <View>
             <View>
-              <Text style={styles.textStyle}>FOOD</Text>
+              {/* <Text style={styles.textStyle}>FOOD</Text>
               <Text style={styles.textStyle}>TRAVELLED</Text>
-              <Text style={styles.textStyle}>FOR YOU.</Text>
+              <Text style={styles.textStyle}>FOR YOU.</Text> */}
+              <Text style={styles.textStyle}>Re-distribute</Text>
+              <Text style={styles.textStyle}>Reprocess</Text>
+              <Text style={styles.textStyle}>Feed hungry people.</Text>
             </View>
             <View style={{marginTop: 30}}>
               <Text style={styles.description}>
